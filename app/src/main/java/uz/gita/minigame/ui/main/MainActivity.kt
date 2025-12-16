@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.widget.*
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat
 import uz.gita.minigame.R
 import uz.gita.minigame.models.data.UserData
 import uz.gita.minigame.ui.game.GameActivity
+import android.app.Activity
 
 class MainActivity : AppCompatActivity(), MainContract.View {
 
@@ -23,6 +25,15 @@ class MainActivity : AppCompatActivity(), MainContract.View {
     private var selectedIndex: Int = -1
 
     private lateinit var levelButtons: List<ImageButton>
+
+    private val gameResultLauncher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            selectedIndex = -1
+            refreshScreen()
+        }
+    }
 
 
 
@@ -42,7 +53,12 @@ class MainActivity : AppCompatActivity(), MainContract.View {
 
         initView()
         initPresenter()
+        showListenerGame()
 
+    }
+    override fun onResume() {
+        super.onResume()
+        refreshScreen()
     }
 
     private fun initView() {
@@ -70,7 +86,9 @@ class MainActivity : AppCompatActivity(), MainContract.View {
         presenter.loadData()
     }
 
-
+    private fun showListenerGame(){
+        selectedIndex = intent.getIntExtra("newLevel",0)
+    }
 
     override fun showRegisterDialog() {
         val view = LayoutInflater.from(this)
@@ -155,8 +173,7 @@ class MainActivity : AppCompatActivity(), MainContract.View {
             val intent = Intent(this, GameActivity::class.java)
             intent.putExtra("QUESTION_INDEX", questionIndex)
 
-            startActivity(intent)
-
+             gameResultLauncher.launch(intent)
     }
 
     override fun showError(message: String) {

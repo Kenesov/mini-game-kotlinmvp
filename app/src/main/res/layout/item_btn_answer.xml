@@ -13,6 +13,7 @@
         android:textSize="40sp"
         android:fontFamily="@font/archivo_black_regular"
         tools:text="F"
+        android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#4AA378"
         android:id="@+id/tv_answer"/>

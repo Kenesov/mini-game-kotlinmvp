@@ -1,6 +1,7 @@
 package uz.gita.minigame.ui.game
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +20,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import uz.gita.minigame.R
+import uz.gita.minigame.ui.main.MainActivity
 
 class GameActivity : AppCompatActivity(), GameContract.View {
 
@@ -196,6 +198,10 @@ class GameActivity : AppCompatActivity(), GameContract.View {
 
         btnNext.setOnClickListener {
             dialog.dismiss()
+            val intent = Intent(this, MainActivity::class.java)
+            intent.putExtra("newLevel", questionIndex)
+            startActivity(intent)
+            finish()
             presenter.onNextClicked()
         }
 
@@ -230,6 +236,12 @@ class GameActivity : AppCompatActivity(), GameContract.View {
     }
 
     override fun navigateMain(isSuccess: Boolean) {
+
+        if (isSuccess) {
+            setResult(RESULT_OK)
+        } else {
+            setResult(RESULT_CANCELED)
+        }
         finish()
     }
 
