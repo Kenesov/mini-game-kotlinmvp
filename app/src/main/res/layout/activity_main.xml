@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainActivity">
+
+    <ScrollView
+        android:id="@+id/mainScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false">
+
+        <RelativeLayout
+            android:id="@+id/mapContainer"
+            android:layout_width="match_parent"
+            android:layout_height="1600dp">
+
+            <ImageView
+                android:id="@+id/mapBackground"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@drawable/map_image" />
+
+            <ImageButton
+                android:id="@+id/level1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="200dp"
+                android:src="@drawable/img_cat"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:contentDescription="Level 1" />
+
+            <ImageButton
+                android:id="@+id/level2"
+                android:layout_width="65dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="120dp"
+                android:layout_marginTop="394dp"
+                android:src="@drawable/level_icon_locked"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:contentDescription="Level 2" />
+
+            <ImageButton
+                android:id="@+id/level3"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:layout_marginStart="110dp"
+                android:layout_marginTop="490dp"
+                android:src="@drawable/level_icon_locked"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:contentDescription="Level 3" />
+
+            <ImageButton
+                android:id="@+id/level4"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginStart="308dp"
+                android:layout_marginTop="620dp"
+                android:src="@drawable/level_icon_locked"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:contentDescription="Level 4" />
+
+            <ImageButton
+                android:id="@+id/level5"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginStart="80dp"
+                android:layout_marginTop="680dp"
+                android:src="@drawable/level_icon_locked"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:contentDescription="Level 5" />
+
+            <ImageButton
+                android:id="@+id/level6"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="90dp"
+                android:layout_marginTop="890dp"
+                android:src="@drawable/level_icon_locked"
+                android:scaleType="fitCenter"
+                android:background="@null"
+                android:contentDescription="Level 6" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start"
+                android:layout_marginTop="200dp"
+                android:layout_marginStart="40dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start"
+                android:layout_marginTop="394dp"
+                android:layout_marginStart="180dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start"
+                android:layout_marginTop="490dp"
+                android:layout_marginStart="170dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start"
+                android:layout_marginTop="615dp"
+                android:layout_marginStart="140dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start"
+                android:layout_marginTop="685dp"
+                android:layout_marginStart="160dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_start"
+                android:layout_marginTop="890dp"
+                android:layout_marginStart="150dp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_vertical"
+        style="@style/Widget.ProgressBar.Vertical"
+        android:layout_width="14dp"
+        android:layout_height="404dp"
+        android:max="10"
+        android:progress="0"
+        android:layout_marginStart="18dp"
+        android:layout_gravity="start|center_vertical" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_user_name"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:textAlignment="center"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/a"
+        android:textSize="24dp"
+        android:textColor="#e8eb34"
+        android:fontFamily="@font/archivo_black_regular"
+        android:layout_gravity="center|top" />
+
+    <ImageView
+        android:id="@+id/btn_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="16dp"
+        android:src="@drawable/refresh_svgrepo_com" />
+
+</FrameLayout>
